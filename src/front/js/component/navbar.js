@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import starWarsLogo from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarslogo.png";
 import '/workspaces/Newux-StarWars-Pro/src/front/styles/navbar.css';
+import ListFavorites from "/workspaces/Newux-StarWars-Pro/src/front/js/component/listFavorites.jsx";
 
 export const Navbar = () => {
 	return (
@@ -17,9 +18,14 @@ export const Navbar = () => {
 								Favorites<span className="badge text-bg-secondary">0</span>
 							</button>
 							<ul className="dropdown-menu">
-								<li><a className="dropdown-item" href="#">Action</a></li>
-								<li><a className="dropdown-item" href="#">Another action</a></li>
-								<li><a className="dropdown-item" href="#">Something else here</a></li>
+							{/* <ListFavorites /> */}
+								{/* <li><a className="dropdown-item d-flex justify-content-between " href="#">Action
+									<span onClick={() => MyActions.deleteTodo(taskToDelete)}>
+										<i className="fa-regular fa-trash-can"></i>
+									</span></a></li> */}
+								{/* <li><a className="dropdown-item" href="#">Another action</a></li>
+								<li><a className="dropdown-item" href="#">Something else here</a></li> */}
+								
 							</ul>
 						</div>
 					</Link>
