@@ -12,7 +12,7 @@ const CharacterSlide = () => {
             <div className="heading-1 p-2">
                 <h3>Characters</h3>
             </div>
-            <div className="card-row1 p-2 d-flex justify-content-between overflow-x-auto w-auto">
+            <div className="card-row1 p-2 gap-5 d-flex overflow-auto w-auto">
                 {store.people.map((character,index)=>{
                     return <CharacterCard key={index} index={index} character={character}/>
                 })}

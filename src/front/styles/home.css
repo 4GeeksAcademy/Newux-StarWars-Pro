@@ -13,18 +13,13 @@
 }
 
 .card {
-    width: 18rem;
+    width: 25rem;
 }
 
 .card-img-top {
-    height: 200px;
+    height: 300px;
 }
 
-/* .card-row1 {
-    width: 1140px;
-    display: flex;
-    overflow-x: scroll;
-} */
 
 .body {
     background-color:rgb(21, 49, 80);

@@ -15,9 +15,6 @@ export const Home = () => {
 	return (
 		<div className="body d-flex flex-column mb-3">
 			<CharacterSlide p-2 />
-			{/* {store.people.map((character,index)=>{
-                    return <CharacterCard key={index} index={index} character={character}/>
-                })} */}
 			<PlanetSlide p-2 />
 			<VehicleSlide p-2 />
 		</div>
