@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import starWarsLogo from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarslogo.png";
+// import starWarsLogo from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarslogo.png";
 import '/workspaces/Newux-StarWars-Pro/src/front/styles/navbar.css';
 import ListFavorites from "/workspaces/Newux-StarWars-Pro/src/front/js/component/listFavorites.jsx";
+// import starWarsAbyss from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarsabyss.png"
+// import saborLogo from "/workspaces/Newux-StarWars-Pro/src/front/img/saborlogo.png";
+import starWarsGlow from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarsglow.png"
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light">
+		<nav className="navbar">
 			<div className="container">
 				<Link to="/">
-					<span className="navbar-brand mb-0 h1"><img src={starWarsLogo} /></span>
+					<span className="navbar-brand mb-0 h1"><img src={starWarsGlow} /></span>
 				</Link>
 				<div className="ml-auto">
 					<Link to="/demo">

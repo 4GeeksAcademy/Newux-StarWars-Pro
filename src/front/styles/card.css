@@ -1,7 +1,9 @@
 .card {
-    box-shadow:
-    0 0 50px #fff,            /* outer white */
-    -10px 0 50px #f0f,        /* outer left magenta */
-    10px 0 50px #0ff;         /* outer right cyan */
+    border: none;
 
+}
+
+.card-body {
+    background-color: rgb(30, 30, 30);
+    color: white;
 }

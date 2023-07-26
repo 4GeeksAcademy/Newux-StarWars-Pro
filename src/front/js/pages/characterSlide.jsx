@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import CharacterCard from '../component/characterCard.jsx'
 import { Context } from "../store/appContext";
+import '/workspaces/Newux-StarWars-Pro/src/front/styles/characterSlide.css'
 
 
 
