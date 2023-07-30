@@ -6,28 +6,12 @@ import propTypes from 'prop-types';
 
 
 
-const CharacterCard = ({
+const SingleProfile = ({
     character, index
 
-
+    
 
 }) => {
-    //useState (loading state) if true, when we load our application, what we want to see page is loading because we are fetching data from API, after resolve we will render component
-    const [isLoading, setIsLoading] = useState(true);
-
-    //if page isLoading is true and we are still fetching data from API, return #load if not content will show
-    if (!isLoading) return <div id="load">
-        <div>G</div>
-        <div>N</div>
-        <div>I</div>
-        <div>D</div>
-        <div>A</div>
-        <div>O</div>
-        <div>L</div>
-    </div>
-
-
-
     //went into the elements tab in google inspect to find this link to images that actually worked lol
     const picURL = `https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`;
     const { store, actions } = useContext(Context)
@@ -46,20 +30,22 @@ const CharacterCard = ({
                     className="card-img-top"
                     alt="wtf?"
                 />
-                <div className="card-body">
+                <div className="card-body-single">
                     <h5 className="card-title">{character.name}</h5>
                     <p className="card-text">Gender: {character.gender}</p>
                     <p className="card-text">Eye Color: {character.eye_color}</p>
                     <p className="card-text">Birth Year: {character.birth_year}</p>
                     <div className="button-group d-flex justify-content-between">
                         {/* reverse wrap with Link component, browser will navigate to route without refreshing */}
-                        <Link to="/destinations">
+                        <Link to="/home">
                             <button href="#" className="btn btn-primary">Learn More!</button>
                         </Link>
-                        <button className={`btn btn-outline-warning ${store.favorites.filter((index) => character.name === character).length < 1 ? "outline-" : ""}`}
-                            onClick={() => actions.addFavorite(character.name, index)}>
-                            <i className="fa-regular fa-heart"></i>
+                        <button onClick={() => addToFavorite(character.id)} className="btn btn-outline-warning">
+                        <i className="fa-regular fa-heart"></i>
                         </button>
+                        {/* <button type="button" className="btn btn-outline-warning">
+                            <i className="fa-regular fa-heart"></i>
+                        </button> */}
                     </div>
                 </div>
             </div>
@@ -70,7 +56,7 @@ const CharacterCard = ({
 
 
 }
-CharacterCard.propTypes = {
+SingleProfile.propTypes = {
     match: propTypes.object, //used to pass to params
 }
-export default CharacterCard
+export default SingleProfile

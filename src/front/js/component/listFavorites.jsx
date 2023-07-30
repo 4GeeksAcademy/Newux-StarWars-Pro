@@ -1,42 +1,46 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
+import propTypes from 'prop-types';
+
 
 
 const ListFavorites = () => {
-    const [favorites, setFavorites] = useState([]) //empty array for favorites
+    const { store, actions } = useContext(Context) //<= from flux
+    console.log(store.favorites)
 
-    const deleteFavorites = (id) => {
-        setFavorites(currentFavorites => {
-            return currentFavorites.filter(favorites => favorites.id !== id)
-        })
 
-        return (
+    return (
+        <div className="fav-dropdown">
+            <button
+                className="btn favorites-button dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                disabled={store.favorites.length === 0 ? true : false}
+            >
+                Favorites
+                {store.favorites.length > 0 ? (<span className='bg-light ms-1 text-danger px-2 fw-semibold rounded-circle'>
+                    {store.favorites.length}
+                </span>) : ""}
+            </button>
             <div>
-                <ul className="dropdown-menu">
-                    <li><a className="dropdown-item d-flex justify-content-between " href="#">Action
-                        <span onClick={() => MyActions.deleteFavorites(favoritesToDelete)}>
-                            <i class="fa-regular fa-trash-can"></i>
-                        </span></a></li>
-                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                    {/* {favorites.map(favorites => {
-                        return (
-                            <div>
-                                <li key={favorites.id} className="list-group-item">
-                                    <a className="dropdown-item d-flex justify-content-between " href="#">
-                                        {favorites.name}
-                                        <span onClick={() => deleteFavorites(favorites.id)}>
-                                            <i className="fa-regular fa-trash-can"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            </div>
-                        )
-                    })} */}
-                </ul>
+                {store.favorites.map((item, idx) => {
+                    return (
+                        <div>
+                            <li key={item} className="list-group-item d-flex justify-content-between">
+                                <a className="dropdown-item " href="#">{item.name}</a>
+                                <span>
+                                        <i className="fa-regular fa-trash-can" onClick={() => actions.removeFavorite(item)}></i>
+                                </span>
+                            </li>
+                        </div>
+                    )
+                })}
             </div>
-        )
-    }
+        </div>
+    )
 };
+
 
 export default ListFavorites

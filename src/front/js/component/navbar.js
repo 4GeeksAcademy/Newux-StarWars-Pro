@@ -1,39 +1,49 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-// import starWarsLogo from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarslogo.png";
+import { Context } from "../store/appContext";
 import '/workspaces/Newux-StarWars-Pro/src/front/styles/navbar.css';
-import ListFavorites from "/workspaces/Newux-StarWars-Pro/src/front/js/component/listFavorites.jsx";
-// import starWarsAbyss from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarsabyss.png"
-// import saborLogo from "/workspaces/Newux-StarWars-Pro/src/front/img/saborlogo.png";
-import starWarsGlow from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarsglow.png"
+import starWarsLit from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarslit.png"
 
 export const Navbar = () => {
+	//comment out to render
+	const { store, actions } = useContext(Context) //<= from flux
+	console.log(store.favorites)
+
+
 	return (
-		<nav className="navbar">
-			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1"><img src={starWarsGlow} /></span>
-				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<div className="dropdown">
-							<button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Favorites<span className="badge text-bg-secondary">0</span>
-							</button>
-							<ul className="dropdown-menu">
-							{/* <ListFavorites /> */}
-								{/* <li><a className="dropdown-item d-flex justify-content-between " href="#">Action
-									<span onClick={() => MyActions.deleteTodo(taskToDelete)}>
-										<i className="fa-regular fa-trash-can"></i>
-									</span></a></li> */}
-								{/* <li><a className="dropdown-item" href="#">Another action</a></li>
-								<li><a className="dropdown-item" href="#">Something else here</a></li> */}
-								
-							</ul>
+		<nav className="navbar d-flex">
+			<Link to="/">
+				<img className="navbar-brand" src={starWarsLit} />
+			</Link>
+			<div className="ml-auto">
+				<Link to="#">
+					<div className="dropdown">
+						<button className="btn favorites-button btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+							disabled={store.favorites.length === 0 ? true : false}> {/*remove this line to render, this disables button if no favs */}
+							Favorites
+							{store.favorites.length > 0 ? (<span className='badge bg-danger ms-1 text-light px-2 fw-semibold'>
+								{store.favorites.length} {/*this line is for badge - with favs counter*/}
+							</span>) : ""}
+						</button>
+						<div className="dropdown-menu bg-dark">
+							{store.favorites.map((item, idx) => {
+								return (
+									<div className="list-container">
+										<li key={item} className="list-group-item d-flex justify-content-between">
+											<a className="dropdown-item" href="#">{item.name}</a>
+											<span>
+												<i className="fa-regular fa-trash-can" onClick={() => actions.removeFavorite(item)}></i>
+											</span>
+										</li>
+									</div>
+								)
+							})}
+
 						</div>
-					</Link>
-				</div>
+					</div>
+				</Link>
 			</div>
+
 		</nav>
 	);
 };

@@ -5,7 +5,7 @@ import "../../styles/home.css";
 import CharacterSlide from "./characterSlide.jsx";
 import PlanetSlide from "./planetSlide.jsx";
 import VehicleSlide from "./vehicleSlide.jsx";
-import CharacterCard from "../component/characterCard.jsx";
+
 
 
 

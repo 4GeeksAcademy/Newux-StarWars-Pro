@@ -1,13 +1,45 @@
-img {
+/* img {
     height: 60px;
+    
+} */
+
+img.navbar-brand {
+    height: 80px;
+    margin-left: 70px;
+}
+.badge {
+    background-color: rgb(113, 113, 113);
+    margin-left: 2px;
+    border-radius: 50px;
+    box-shadow: rgba(219, 211, 211, 0.56) 0px 22px 70px 4px;
+    position: relative;
+    z-index: 2;
+}
+
+nav.navbar {
+    background-color: rgb(0, 0, 0);
+    height: 80px;
+}
+
+
+.container {
+    background-color: rgb(0, 0, 0);
+
+}
+
+.favorites-button {
+    margin-right: 75px;
+    border-radius: 25px;
+    border: none;
+    background-color: rgb(85, 5, 96);
+}
+
+.list-group-item {
+    background-color: rgb(31, 31, 31);
+    color: rgb(139, 139, 139);
     
 }
 
-.badge {
-    background-color: gray;
-    margin-left: 2px;
-}
-
-.navbar {
-    background-color: black;
+.dropdown-item {
+    color: white;
 }

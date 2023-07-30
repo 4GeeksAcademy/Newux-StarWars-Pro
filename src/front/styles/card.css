@@ -1,9 +1,21 @@
 .card {
     border: none;
-
+    width: 24rem;
+    box-shadow: rgba(120, 3, 129, 0.744) 0px 2px 4px 0px, rgba(104, 2, 105, 0.498) 0px 2px 16px 0px;
 }
 
 .card-body {
     background-color: rgb(30, 30, 30);
     color: white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
+
+.card-img-top {
+    height: 320px;
+}
+
+.card-img-top {
+    background-color: black;
+}
+
