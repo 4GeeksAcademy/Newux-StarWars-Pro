@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import propTypes from 'prop-types';
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 // import {ListFavorites} from "./listFavorites";
 
 
@@ -34,7 +35,9 @@ const CharacterCard = ({
     const params = useParams();
     let char = store.people.find((item, index) => index == params.theIndex)
 
-    const setPeople = useState([]); //UseState run the function (API)
+    const setPeople = useState([]); //UseState run//  the function (API)
+    const [isFavorite, setIsFavorite] = useState(true);
+
 
     console.log(setPeople);
     console.log(character.name);
@@ -44,7 +47,8 @@ const CharacterCard = ({
                 <img
                     src={picURL}
                     className="card-img-top"
-                    alt="wtf?"
+                    alt="wtf?" 
+                    onError={e => e.target.src = "https://placehold.co/400x550"}
                 />
                 <div className="card-body">
                     <h5 className="card-title">{character.name}</h5>
@@ -58,7 +62,7 @@ const CharacterCard = ({
                         </Link>
                         <button className={`btn btn-outline-warning ${store.favorites.filter((index) => character.name === character).length < 1 ? "outline-" : ""}`}
                             onClick={() => actions.addFavorite(character.name, index)}>
-                            <i className="fa-regular fa-heart"></i>
+                                {isFavorite ? <i className="fa-regular fa-heart"/> : <i className="fa-solid fa-heart"/> }
                         </button>
                     </div>
                 </div>

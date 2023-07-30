@@ -51,10 +51,10 @@ const CharacterDetails = ({
 
 
 }
-CharacterCard.propTypes = {
+CharacterDetails.propTypes = {
     match: propTypes.object, //used to pass to params
 }
-export default CharacterCard
+export default CharacterDetails
 
 
 

@@ -27,9 +27,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 		actions: {
-			// Use getActions to call a function within a fuction
-			// exampleFunction: () => {
-			// 	getActions().changeColor(0, "green");
+			// Use getActions to call a function within a function
+			// changeOfHeart: () => {
+			// 	getActions().changeColor(0, "purple");
 			// },
 			
 			//function to add favorites
@@ -51,6 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const newArr = store.favorites.filter((item) => item.name != obj.name)
 				setStore({favorites: newArr})
 			},
+
 
 
 

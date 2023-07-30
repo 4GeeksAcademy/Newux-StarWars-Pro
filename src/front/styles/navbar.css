@@ -43,3 +43,8 @@ nav.navbar {
 .dropdown-item {
     color: white;
 }
+
+.fa-trash-can {
+    height: 16px;
+    margin-top: 8px;
+}
