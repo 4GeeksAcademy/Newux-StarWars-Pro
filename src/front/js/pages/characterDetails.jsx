@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import propTypes from 'prop-types';
+import { Single } from "./single";
 
 
 
@@ -11,7 +12,7 @@ const CharacterDetails = ({
 
 }) => {
     //went into the elements tab in google inspect to find this link to images that actually worked lol
-    const picURL = `https://starwars-visualguide.com/assets/img/characters/${index+1}.jpg`;
+    const picURL = `https://starwars-visualguide.com/assets/img/characters/${index}.jpg`;
     const { store, actions } = useContext(Context)
     const params = useParams();
     let char = store.people.find((item, index) => index == params.theIndex)
@@ -35,8 +36,8 @@ const CharacterDetails = ({
                     <p className="card-text">Birth Year: {character.birth_year}</p>
                     <div className="button-group d-flex justify-content-between">
                         {/* reverse wrap with Link component, browser will navigate to route without refreshing */}
-                        <Link to="/demo">
-                            <button href="#" className="btn btn-primary">Learn More!</button>
+                        <Link to={"/character/details/" + index}>
+                            <button className="btn btn-primary">Learn More!</button>
                         </Link>
                         <button type="button" className="btn btn-outline-warning">
                             <i className="fa-regular fa-heart"></i>

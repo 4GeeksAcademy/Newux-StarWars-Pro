@@ -12,6 +12,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Destinations from "./component/Destinations/index.jsx";
 
+
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -29,6 +30,7 @@ const Layout = () => {
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
+                        <Route element={<Single category="character" />} path="/character/details/:theIndex" />
                         <Route element={<h1>Not found!</h1>} />
                         <Route element={<Destinations />} path="/destinations" />
                     </Routes>

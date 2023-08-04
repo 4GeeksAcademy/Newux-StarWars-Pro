@@ -30,10 +30,12 @@ const CharacterCard = ({
 
 
     //went into the elements tab in google inspect to find this link to images that actually worked lol
-    const picURL = `https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`;
+    const picURL = `https://starwars-visualguide.com/assets/img/characters/${index+1}.jpg`;
     const { store, actions } = useContext(Context)
-    const params = useParams();
-    let char = store.people.find((item, index) => index == params.theIndex)
+    //this gets the name of the favorites we need
+    //everytime we select favs button, function finds the name and adds it to the favs
+    let favs = store.favorites.find((favs) => favs.name == character.name); 
+
 
     const setPeople = useState([]); //UseState run//  the function (API)
     const [isFavorite, setIsFavorite] = useState(true);
@@ -57,12 +59,12 @@ const CharacterCard = ({
                     <p className="card-text">Birth Year: {character.birth_year}</p>
                     <div className="button-group d-flex justify-content-between">
                         {/* reverse wrap with Link component, browser will navigate to route without refreshing */}
-                        <Link to="/destinations">
-                            <button href="#" className="btn btn-primary">Learn More!</button>
+                        <Link to={"/character/details/" + index}>
+                            <button className="btn btn-primary">Learn More!</button>
                         </Link>
                         <button className={`btn btn-outline-warning ${store.favorites.filter((index) => character.name === character).length < 1 ? "outline-" : ""}`}
                             onClick={() => actions.addFavorite(character.name, index)}>
-                                {isFavorite ? <i className="fa-regular fa-heart"/> : <i className="fa-solid fa-heart"/> }
+                                {!favs ? <i className="fa-regular fa-heart"/> : <i className="fa-solid fa-heart"/> }
                         </button>
                     </div>
                 </div>

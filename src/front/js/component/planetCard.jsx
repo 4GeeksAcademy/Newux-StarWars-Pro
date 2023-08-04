@@ -11,8 +11,9 @@ const PlanetCard = ({
     const picURL = `https://starwars-visualguide.com/assets/img/planets/${index+2}.jpg`;
     const { store, actions } = useContext(Context)
     const params = useParams();
-    //index is for favorites feature
-    // let plan = store.planets.find((item, index) => index == params.theIndex)
+    //this gets the name of the favorites we need
+    //everytime we select favs button, function finds the name and adds it to the favs
+    let favs = store.favorites.find((favs) => favs.name == planet.name);
 
     // const setPlanets = useState([]); //UseState run the function (API)
 
@@ -31,12 +32,12 @@ const PlanetCard = ({
                     <p className="card-text">Population: {planet.population}</p>
                     <p className="card-text">Terrain: {planet.terrain}</p>
                     <div className="button-group d-flex justify-content-between">
-                        <Link to="/destinations">
-                            <button href="#" className="btn btn-primary">Learn More!</button>
+                        <Link to={"/planet/details/" + index}>
+                            <button className="btn btn-primary">Learn More!</button>
                         </Link>
                         <button className={`btn btn-outline-warning ${store.favorites.filter((index) => planet.name === planet).length < 1 ? "outline-" : ""}`}
                             onClick={() => actions.addFavorite(planet.name, index)}>
-                            <i className="fa-regular fa-heart"></i>
+                                {!favs ? <i className="fa-regular fa-heart"/> : <i className="fa-solid fa-heart"/> }
                         </button>
                     </div>
                 </div>

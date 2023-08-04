@@ -13,12 +13,8 @@ const VehicleCard = ({
     const picURL = `https://starwars-visualguide.com/assets/img/vehicles/${index + 4}.jpg`;
     const { store, actions } = useContext(Context);
     const params = useParams();
-    //below variables for favorites button
-    const [solidHeart, setSolidHeart] = useState(false);
-    const toggleSolidHeart = () => setSolidHeart(!solidHeart);
-    const darkHeart = <i className="fa-solid fa-heart" style="color: #000000;"></i>;
-    const lightHeart = <i className="fa-regular fa-heart"></i>
-
+    
+    let favs = store.favorites.find((favs) => favs.name == vehicle.name);
     console.log(vehicle);
 
     return (
@@ -36,7 +32,7 @@ const VehicleCard = ({
                         </Link>
                         <button className={`btn btn-outline-warning ${store.favorites.filter((index) => vehicle.name === vehicle).length < 1 ? "outline-" : ""}`}
                             onClick={() => actions.addFavorite(vehicle.name, index)}>
-                            <i className="fa-regular fa-heart"></i>
+                                {!favs ? <i className="fa-regular fa-heart"/> : <i className="fa-solid fa-heart"/> }
                         </button>
                     </div>
                 </div>
