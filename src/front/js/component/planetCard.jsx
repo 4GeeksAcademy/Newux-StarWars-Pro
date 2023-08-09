@@ -32,7 +32,7 @@ const PlanetCard = ({
                     <p className="card-text">Population: {planet.population}</p>
                     <p className="card-text">Terrain: {planet.terrain}</p>
                     <div className="button-group d-flex justify-content-between">
-                        <Link to={"/planet/details/" + index}>
+                        <Link to={"/planets/details/" + index}>
                             <button className="btn btn-primary">Learn More!</button>
                         </Link>
                         <button className={`btn btn-outline-warning ${store.favorites.filter((index) => planet.name === planet).length < 1 ? "outline-" : ""}`}

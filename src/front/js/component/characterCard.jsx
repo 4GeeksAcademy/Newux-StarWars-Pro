@@ -34,7 +34,8 @@ const CharacterCard = ({
     const { store, actions } = useContext(Context)
     //this gets the name of the favorites we need
     //everytime we select favs button, function finds the name and adds it to the favs
-    let favs = store.favorites.find((favs) => favs.name == character.name); 
+    //store.favorites.find is accessing the favorites array of objects in the flux
+    let favs = store.favorites.find((favs) => favs.name == character.name);
 
 
     const setPeople = useState([]); //UseState run//  the function (API)
@@ -63,7 +64,7 @@ const CharacterCard = ({
                             <button className="btn btn-primary">Learn More!</button>
                         </Link>
                         <button className={`btn btn-outline-warning ${store.favorites.filter((index) => character.name === character).length < 1 ? "outline-" : ""}`}
-                            onClick={() => actions.addFavorite(character.name, index)}>
+                            onClick={() => actions.addFavorite(character.name, index)}> 
                                 {!favs ? <i className="fa-regular fa-heart"/> : <i className="fa-solid fa-heart"/> }
                         </button>
                     </div>

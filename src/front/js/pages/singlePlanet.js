@@ -7,16 +7,16 @@ import { CharacterDetails } from "/workspaces/Newux-StarWars-Pro/src/front/js/pa
 import "/workspaces/Newux-StarWars-Pro/src/front/styles/single.css";
 
 
-export const Single = (props, index) => {
+export const SinglePlanet = (props, index) => {
 
 	const { store, actions } = useContext(Context);
 	const params = useParams();
-	let character = store.people.find((item, index) => index == params.theIndex);
-	// let planets = store.planet.find((item, index) => index == params.theIndex);
-	const picURL = `https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`;
-	let favs = store.favorites.find((favs) => favs.name == character.name);
+	// let character = store.people.find((item, index) => index == params.theIndex);
+	let planets = store.planets.find((item, index) => index == params.theIndex);
+	const picURL = `https://starwars-visualguide.com/assets/img/planets/${index+1}.jpg`;
+	let favs = store.favorites.find((favs) => favs.name == planets.name);
 
-	console.log(character);
+	console.log(planets);
 	return (
 		<div className="jumbotron">
 			<div className="billboard d-flex flex-row justify-content-center">
@@ -30,9 +30,9 @@ export const Single = (props, index) => {
 				</div>
 				<div className="billboard-text p-5 text-center">
 					<div className="title-fav d-flex justify-content-evenly">
-						<h1 className="bill-header fs-1">{character.name}</h1>
-						<button className={`btn ${store.favorites.filter((index) => character.name === character).length < 1 ? "outline-" : ""}`}
-							onClick={() => actions.addFavorite(character.name, index)}>
+						<h1 className="bill-header fs-1">{planets.name}</h1>
+						<button className={`btn ${store.favorites.filter((index) => planets.name === planets).length < 1 ? "outline-" : ""}`}
+							onClick={() => actions.addFavorite(planets.name, index)}>
 							{!favs ? <i className="fa-regular fa-heart" /> : <i className="fa-solid fa-heart" style={{color: "#ffd500",}}/>}
 						</button>
 					</div>
@@ -49,27 +49,27 @@ export const Single = (props, index) => {
 			<div className="single-card d-flex flex-row justify-content-center">
 				<p className="card-text p-5 text-center">
 					<p className="label fw-bold">Name</p>
-					{character.name}
+					{planets.name}
 				</p>
 				<p className="card-text p-5 text-center">
-					<p className="label fw-bold">Gender</p>
-					{character.gender}
+					<p className="label fw-bold">Population</p>
+					{planets.population}
 				</p>
 				<p className="card-text p-5 text-center">
-					<p className="label fw-bold">Eye Color</p>
-					{character.eye_color}
+					<p className="label fw-bold">Terrain</p>
+					{planets.terrain}
 				</p>
 				<p className="card-text p-5 text-center">
-					<p className="label fw-bold">Birth Year</p>
-					{character.birth_year}
+					<p className="label fw-bold">Climate</p>
+					{planets.climate}
 				</p>
 				<p className="card-text p-5 text-center">
-					<p className="label fw-bold">Skin Color</p>
-					{character.skin_color}
+					<p className="label fw-bold">Gravity</p>
+					{planets.gravity}
 				</p>
 				<p className="card-text p-5 text-center">
-					<p className="label fw-bold">Height</p>
-					{character.height} cm
+					<p className="label fw-bold">Surface Water</p>
+					{planets.surface_water}
 				</p>
 			</div>
 			{/* <Link to="/">
@@ -82,6 +82,6 @@ export const Single = (props, index) => {
 	);
 };
 
-Single.propTypes = {
+SinglePlanet.propTypes = {
 	match: PropTypes.object
 };

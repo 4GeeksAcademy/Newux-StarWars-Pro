@@ -27,7 +27,7 @@ const VehicleCard = ({
                     <p className="card-text">Passengers: {vehicle.passengers}</p>
                     <p className="card-text">Crew: {vehicle.crew}</p>
                     <div className="button-group d-flex justify-content-between">
-                        <Link to="/destinations">
+                        <Link to={"/vehicles/details/" + index}>
                             <button href="#" className="btn btn-primary">Learn More!</button>
                         </Link>
                         <button className={`btn btn-outline-warning ${store.favorites.filter((index) => vehicle.name === vehicle).length < 1 ? "outline-" : ""}`}

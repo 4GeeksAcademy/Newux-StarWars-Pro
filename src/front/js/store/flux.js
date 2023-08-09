@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	getActions().changeColor(0, "purple");
 			// },
 			
-			//function to add favorites
+			//function to add favorites...use "actions.addFavorites" in .jsx to access the array of objects
 			addFavorite: (name, type, id) => {
 				const store = getStore();
 				if (store.favorites.filter((item) => item.name === name).length === 0) {
