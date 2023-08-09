@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import propTypes from 'prop-types';
-import '/workspaces/Newux-StarWars-Pro/src/front/styles/card.css'
+import '../../styles/card.css';
 
 
 

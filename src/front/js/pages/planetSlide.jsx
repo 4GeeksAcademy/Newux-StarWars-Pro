@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import PlanetCard from '../component/planetCard.jsx'
 import { Context } from "../store/appContext";
-import '/workspaces/Newux-StarWars-Pro/src/front/styles/characterSlide.css'
+import '../../styles/characterSlide.css'
 
 
 const PlanetSlide = () => {

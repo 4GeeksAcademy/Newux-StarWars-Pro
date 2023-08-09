@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import '/workspaces/Newux-StarWars-Pro/src/front/styles/navbar.css';
-import starWarsLit from "/workspaces/Newux-StarWars-Pro/src/front/img/starwarslit.png"
+import '../../styles/navbar.css';
+import starWarsLit from '../../img/starwarslit.png';
 
 export const Navbar = () => {
 	//comment out to render

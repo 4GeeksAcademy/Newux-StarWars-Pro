@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import VehicleCard from '../component/vehicleCard.jsx'
+import VehicleCard from '../component/vehicleCard.jsx';
 import { Context } from "../store/appContext";
-import '/workspaces/Newux-StarWars-Pro/src/front/styles/characterSlide.css'
+import '../../styles/characterSlide.css';
 
 const VehicleSlide = () => {
     const {store, actions} = useContext(Context)

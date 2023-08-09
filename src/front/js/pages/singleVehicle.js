@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 // import rigoImageUrl from "../../img/rigo-baby.jpg";
-import { CharacterDetails } from "/workspaces/Newux-StarWars-Pro/src/front/js/pages/characterDetails.jsx"
-import "/workspaces/Newux-StarWars-Pro/src/front/styles/single.css";
+// import { CharacterDetails } from "/workspaces/Newux-StarWars-Pro/src/front/js/pages/characterDetails.jsx"
+import '../../styles/single.css';
 
 
 export const SingleVehicle = (props, index) => {
